@@ -78,6 +78,6 @@ func main() {
 
 	err := app.Run(os.Args)
 	if err != nil {
-		fmt.Printf("[Error] %v", err)
+		fmt.Printf("[Error] %v\n", err)
 	}
 }
