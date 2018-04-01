@@ -15,7 +15,7 @@ import (
 // constant of app
 const (
 	AppVersion  = "v0.0.0"
-	AppName     = "beehive-queen"
+	AppName     = "bh-queen"
 	DefaultPort = 13000
 )
 

@@ -14,7 +14,7 @@ import (
 // constant of app
 const (
 	AppVersion = "v0.0.0"
-	AppName    = "beehive-worker"
+	AppName    = "bh-worker"
 )
 
 func main() {
