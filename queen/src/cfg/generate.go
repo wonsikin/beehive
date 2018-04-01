@@ -3,6 +3,8 @@ package cfg
 import (
 	"fmt"
 	"os"
+
+	yaml "gopkg.in/yaml.v2"
 )
 
 // CfgFileName is the file name of config file
@@ -17,7 +19,12 @@ func Init() error {
 	}
 	defer file.Close()
 
-	_, err = file.WriteString(tpl)
+	tpl, err := newDefaultConfigTemplate()
+	if err != nil {
+		return err
+	}
+
+	_, err = file.Write(tpl)
 	if err != nil {
 		return err
 	}
@@ -26,8 +33,19 @@ func Init() error {
 	return nil
 }
 
-const tpl = `# beehive-queen configuration
-db:
-	type: 
-	mongo:
-`
+func newDefaultConfigTemplate() ([]byte, error) {
+	db := &DB{
+		Type:    "",
+		MongoDB: "",
+	}
+
+	cfg := &Config{
+		DB: db,
+	}
+
+	data, err := yaml.Marshal(cfg)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}
