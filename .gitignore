@@ -1,2 +1,5 @@
 .idea/
 .vscode/
+beehive-worker.conf.yaml
+beehive-queen.conf.yaml
+*.log
