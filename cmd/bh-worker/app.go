@@ -13,7 +13,7 @@ import (
 
 // constant of app
 const (
-	AppVersion = "v0.0.0"
+	AppVersion = "v0.0.1"
 	AppName    = "bh-worker"
 )
 
@@ -27,7 +27,7 @@ func main() {
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:  "config, c",
-			Value: "./beehive-worker.conf.yaml",
+			Value: fmt.Sprintf("./%s", cfg.CfgFileName),
 			Usage: "load configuration from `FILE`",
 		},
 	}
@@ -71,6 +71,6 @@ func main() {
 
 	err := app.Run(os.Args)
 	if err != nil {
-		fmt.Printf("[Error] %v", err)
+		fmt.Printf("[Error] %v\n", err)
 	}
 }

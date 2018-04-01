@@ -14,7 +14,7 @@ import (
 
 // constant of app
 const (
-	AppVersion  = "v0.0.0"
+	AppVersion  = "v0.0.1"
 	AppName     = "bh-queen"
 	DefaultPort = 13000
 )

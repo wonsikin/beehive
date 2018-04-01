@@ -8,7 +8,7 @@ import (
 )
 
 // CfgFileName is the file name of config file
-const CfgFileName = "beehive-queen.conf.yaml"
+const CfgFileName = "bh-queen.conf.yaml"
 
 // Init generates a config file
 func Init() error {
