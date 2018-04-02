@@ -6,29 +6,29 @@ import (
 
 	"github.com/hpcloud/tail"
 
-	"github.com/wonsikin/beehive/queen/src/scheme"
-	"github.com/wonsikin/beehive/worker/src/bridge"
-	"github.com/wonsikin/beehive/worker/src/cfg"
-	"github.com/wonsikin/beehive/worker/src/system"
+	"github.com/wonsikin/beehive/src/bridge"
+	"github.com/wonsikin/beehive/src/config"
+	"github.com/wonsikin/beehive/src/scheme"
+	"github.com/wonsikin/beehive/src/system"
 )
 
 // Worker represents a worker instance
 type Worker struct {
-	Config     *cfg.Config
+	Config     *config.Worker
 	System     *system.Information
 	HTTPClient *bridge.Client
 }
 
 // NewWorker return a new worker
-func NewWorker(config *cfg.Config) (*Worker, error) {
-	client := bridge.NewClient(config.Queen.Host)
+func NewWorker(cfg *config.Worker) (*Worker, error) {
+	client := bridge.NewClient(cfg.Queen.Host)
 
-	si, err := system.NewInformation(config.LogSource)
+	si, err := system.NewInformation(cfg.LogSource)
 	if err != nil {
 		return nil, err
 	}
 	return &Worker{
-		Config:     config,
+		Config:     cfg,
 		System:     si,
 		HTTPClient: client,
 	}, nil

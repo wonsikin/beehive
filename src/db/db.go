@@ -3,10 +3,8 @@ package db
 import (
 	"errors"
 
-	"github.com/CardInfoLink/log"
-
-	"github.com/wonsikin/beehive/queen/src/cfg"
-	"github.com/wonsikin/beehive/queen/src/db/mongo"
+	"github.com/wonsikin/beehive/src/config"
+	"github.com/wonsikin/beehive/src/db/mongo"
 )
 
 // database type constants
@@ -20,11 +18,10 @@ var (
 )
 
 // Connect connects to database
-func Connect(config *cfg.DB) error {
-	log.Debugf("cfg is %#+v", config)
-	switch config.Type {
+func Connect(cfg *config.DB) error {
+	switch cfg.Type {
 	case dbMongo:
-		err := mongo.Init(config.MongoDB)
+		err := mongo.Init(cfg.MongoDB)
 		if err != nil {
 			return err
 		}

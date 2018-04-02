@@ -8,8 +8,7 @@ import (
 	"time"
 
 	"github.com/CardInfoLink/log"
-
-	"github.com/wonsikin/beehive/queen/src/scheme"
+	"github.com/wonsikin/beehive/src/scheme"
 )
 
 // Client represents a HTTP client

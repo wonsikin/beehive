@@ -3,7 +3,7 @@ package mongo
 import (
 	"time"
 
-	"github.com/wonsikin/beehive/queen/src/scheme"
+	"github.com/wonsikin/beehive/src/scheme"
 )
 
 var msgCollectionName = "hive.msg"

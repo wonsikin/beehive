@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/wonsikin/beehive/queen/src/server/handlers"
+	"github.com/wonsikin/beehive/src/server/handlers"
 )
 
 // NewServer returns a new HTTP server

@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/wonsikin/beehive/queen/src/db/mongo"
-	"github.com/wonsikin/beehive/queen/src/scheme"
+	"github.com/wonsikin/beehive/src/db/mongo"
+	"github.com/wonsikin/beehive/src/scheme"
 )
 
 // PostMessage handles message posting
