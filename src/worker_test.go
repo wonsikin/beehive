@@ -4,20 +4,20 @@ import (
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
-	"github.com/wonsikin/beehive/worker/src/cfg"
+	"github.com/wonsikin/beehive/src/config"
 )
 
 func TestNewWorker(t *testing.T) {
 	Convey("Test new worker", t, func() {
 		host := "http://127.0.0.1:13000"
-		q := &cfg.Queen{
+		q := &config.QueenServer{
 			Host: host,
 		}
-		config := &cfg.Config{
+		cfg := &config.Worker{
 			Queen: q,
 		}
 
-		worker, err := NewWorker(config)
+		worker, err := NewWorker(cfg)
 		So(err, ShouldBeNil)
 		So(worker, ShouldNotBeNil)
 		So(worker.Config, ShouldNotBeNil)
@@ -30,14 +30,14 @@ func TestNewWorker(t *testing.T) {
 func TestNewMsgPayload(t *testing.T) {
 	Convey("Test new worker", t, func() {
 		host := "http://127.0.0.1:13000"
-		q := &cfg.Queen{
+		q := &config.QueenServer{
 			Host: host,
 		}
-		config := &cfg.Config{
+		cfg := &config.Worker{
 			Queen: q,
 		}
 
-		worker, err := NewWorker(config)
+		worker, err := NewWorker(cfg)
 		So(err, ShouldBeNil)
 		So(worker, ShouldNotBeNil)
 		msg := worker.newMsgPayload("log content")

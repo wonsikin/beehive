@@ -1,4 +1,4 @@
-package cfg
+package config
 
 import (
 	"io/ioutil"
@@ -7,15 +7,15 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
-// Config represents a configuration of worker
-type Config struct {
-	LogSource string  `yaml:"logSource"` // the log file the worker digging
-	Rules     []*Rule `yaml:"rules"`     // xxxx
-	Queen     *Queen  `yaml:"queen"`
+// Worker represents a configuration of worker
+type Worker struct {
+	LogSource string       `yaml:"logSource"` // the log file the worker digging
+	Rules     []*Rule      `yaml:"rules"`     // xxxx
+	Queen     *QueenServer `yaml:"queen"`
 }
 
-// Queen represents beehive-queen's information
-type Queen struct {
+// QueenServer represents beehive-queen's information
+type QueenServer struct {
 	Host string `yaml:"host"`
 }
 
@@ -27,15 +27,15 @@ type Rule struct {
 	Desc      string         `yaml:"desc"`   // description of rule
 }
 
-// Parse parses the config file
-func Parse(path string) (*Config, error) {
+// ParseWorkerCfg parses the config file. It returns an instance of Worker configuration.
+func ParseWorkerCfg(path string) (*Worker, error) {
 	data, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
 
 	// parse config file and return
-	cfg := &Config{}
+	cfg := &Worker{}
 	err = yaml.Unmarshal(data, cfg)
 	if err != nil {
 		return nil, err
