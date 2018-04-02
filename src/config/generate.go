@@ -60,8 +60,8 @@ func initQueenCfgFile() error {
 
 func newDefaultQueenCfg() ([]byte, error) {
 	db := &DB{
-		Type:    "",
-		MongoDB: "",
+		Type:    "mongodb",
+		MongoDB: "mongodb://<username>:<password>@127.0.0.1:27017/<dbname>",
 	}
 
 	cfg := &Queen{
