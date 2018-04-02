@@ -3,3 +3,5 @@
 bh-worker.conf.yaml
 bh-queen.conf.yaml
 *.log
+beehive-queen.conf.yaml
+beehive-worker.conf.yaml
