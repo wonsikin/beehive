@@ -5,3 +5,4 @@ beehive-queen.conf.yaml
 beehive-worker.conf.yaml
 test/
 build/
+.goreleaser.yml
